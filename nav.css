@@ -1,0 +1,78 @@
+
+body {
+    background: #06beb6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #48b1bf, #06beb6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+.blob {
+    height: 15rem;
+    width: 15rem;
+    animation: shapeChange 5s ease-in-out infinite;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav-list {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-link {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blob {
+    height: 15rem;
+    width: 15rem;
+    transition: transform 0.4s ease-out;
+    transform: scale(1);
+}
+.tk-blob {
+    transform: scale(1);
+    background-color: blue;
+    transition: transform 0.4s ease-out;
+}
+
+.nav-icon:hover {
+    fill: red;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.nav-icon {
+    height: 5rem;
+    width: 5rem;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
