@@ -1,0 +1,186 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@300&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--background-default);  /* fallback for old browsers */
+    background:  var(--background-chrome); /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--background-normal); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    overflow-y: hidden;
+}
+
+:root {
+    --background-default: #06beb6;
+    --background-chrome: -webkit-linear-gradient(to right, #48b1bf, #06beb6);
+    --background-normal: linear-gradient(to right, #48b1bf, #06beb6);
+    --color-default: #cb2d3e;  /* fallback for old browsers */
+    --color-chrome: -webkit-linear-gradient(to left, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+    --color-normal: linear-gradient(to left, #ef473a, #cb2d3e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --font-title: 'Archivo';
+    --font-second: 'Alata';
+}
+
+#background {
+    background: var(--background-default);  /* fallback for old browsers */
+    background:  var(--background-chrome); /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--background-normal); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Text Stylings */
+
+.title {
+    font-family: var(--font-title);
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+}
+
+.support {
+    font-family: var(--font-second);
+    font-size: 1.1rem;
+    text-align: center;
+    opacity: 0;
+}
+
+.emphasis {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: var(--color-default);
+    background: var(--color-chrome);
+    background: var(--color-normal);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    justify-content: space-evenly;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 45%;
+}
+
+#welcome-txt {
+    opacity: 0;
+}
+
+#support-3 {
+    font-weight: bold;
+    font-size: 2rem;
+    background: #42275a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
+}
+#wipe-container {
+    background: var(--background-default);  /* fallback for old browsers */
+    background:  var(--background-chrome); /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--background-normal); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#underwipe {
+    background: var(--background-default);  /* fallback for old browsers */
+    background:  var(--background-chrome); /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--background-normal); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+#title {
+    padding-top: 3rem;
+    box-sizing: border-box;
+}
+#rewatch-btn {
+    border-radius: 30px;
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    width: 13rem;
+    height: 3rem;
+    margin-top: 3rem;
+    background: var(--color-default);
+    background: var(--color-chrome);
+    background: var(--color-normal);
+    border: solid 3px black;
+    color: #d5e0e1;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transform: scale(1);
+    animation: slowGrow ease-in-out 1.5s alternate infinite;
+    transition: border-color 0.3s ease;
+}
+#rewatch-btn:hover {
+    border-color: #d5e0e1;
+}
+#wrap {
+    opacity: 0;
+}
+
+@keyframes slowZoom {
+    0% {
+        letter-spacing: 0rem;
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        letter-spacing: 0.5rem;
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes wipe {
+    0% {
+        translate: 0 0;
+    }
+    100% {
+        translate: 0 -5000%;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes slowGrow {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
