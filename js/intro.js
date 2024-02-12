@@ -1,5 +1,5 @@
 // intro anims
-
+//variable definitions
 const text1 = document.getElementById('welcome-txt');
 const text2 = document.getElementById('support-1');
 const text3 = document.getElementById('support-2');
@@ -38,10 +38,20 @@ rewatchBtn.addEventListener('click', () => {
 
 function runAnim() {
     console.log('anim running');
-    hidden(navbar, rewatchBtn);
-    opacityOff(text1, text2, text3, text4);
+    // Reset CSS animations for the elements
+    text1.style.animation = 'none';
+    text2.style.animation = 'none';
+    text3.style.animation = 'none';
+    text4.style.animation = 'none';
+    wipe.style.animation = 'none';
+    wrap.style.animation = 'none';
+
+    // Reset opacity and visibility for the elements
+    opacity0(text1, text2, text3, text4, wrap);
+    hidden(text1, text2, text3, text4, navbar, wrap);
     visible(background, text1, text2, text3, text4, wipe, underwipe);
     document.getElementById('title').textContent = '';
+    // run anims
     setTimeout(() => {
         console.log('anim running');
         text1.style.animation = 'slowZoom 1s ease-out forwards 1';
@@ -56,17 +66,19 @@ function runAnim() {
                     console.log('text4 anim');
                     text4.style.animation = 'slowZoom 1s ease-out forwards 1';
                     setTimeout(wipeAnim, 2000);
-                }, 2000);
-            }, 2000);
-        }, 1600);
+                }, 4000);
+            }, 4000);
+        }, 3200);
     }, 1000);
 }
+
 
 function wipeAnim() {
     wipe.style.animation = 'wipe 1s ease-in forwards 1';
     setTimeout(() => {
+        opacity0(text1, text2, text3, text4);
         hidden(text1, text2, text3, text4);
-        opacityOff(rewatchBtn);
+        opacity1(rewatchBtn);
         visible(navbar, rewatchBtn);
         setTimeout(() => {
             let i = 0;
@@ -98,13 +110,28 @@ function wipeAnim() {
 
 
 function visible(...a) {
-    for (let i=0; i<a.length; i++) a[i].style.visibility = 'visible';
+    for (let i=0; i<a.length; i++) {
+        a[i].classList.add('visible');
+        a[i].classList.remove('hidden');
+    }
 }
 
 function hidden(...a) {
-    for (let i=0; i<a.length; i++) a[i].style.visibility = 'hidden';
+    for (let i=0; i<a.length; i++) {
+        a[i].classList.add('hidden');
+        a[i].classList.remove('visible');
+    }
 }
 
-function opacityOff(...a) {
-    for (let i=0; i<a.length; i++) a[i].style.opacity = 0;
+function opacity1(...a) {
+    for (let i=0; i<a.length; i++) {
+        a[i].classList.add('opacity1');
+        a[i].classList.remove('opacity0');
+    }
+}
+function opacity0(...a) {
+    for (let i=0; i<a.length; i++) {
+        a[i].classList.add('opacity0');
+        a[i].classList.remove('opacity1');
+    }
 }

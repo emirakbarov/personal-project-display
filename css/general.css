@@ -139,48 +139,15 @@ body {
     opacity: 0;
 }
 
-@keyframes slowZoom {
-    0% {
-        letter-spacing: 0rem;
-        opacity: 0;
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        letter-spacing: 0.5rem;
-        opacity: 1;
-    }
+.visible {
+    visibility: visible;
 }
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.hidden {
+    visibility: hidden;
 }
-@keyframes wipe {
-    0% {
-        translate: 0 0;
-    }
-    100% {
-        translate: 0 -5000%;
-    }
+.opacity1 {
+    opacity: 1;
 }
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@keyframes slowGrow {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
+.opacity0 {
+    opacity: 0;
 }
